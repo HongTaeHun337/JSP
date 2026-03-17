@@ -1,0 +1,142 @@
+새 프로젝트
+- Dynamic Web Project > "SemiProject" > "semi" + web.xml(v)
+
+세미 프로젝트
+- 회원 관리
+- 게시판(CRUD)
+
+1. 주제
+	- 미정
+	
+2. 요구분석
+	- 회원 관리
+		- 가입
+		- 인증
+		- 탈퇴
+	- 게시판
+	- 기타 기능
+	
+3. 페이지 구성(순서도 or 관계도)
+	- https://draw.io
+
+4. 화면 설계도(와이어 프레임)
+	- 생략
+	
+5. 스토리 보드
+	- 생략
+
+6. 데이터베이스
+	- ERD
+
+7. 스크립트
+	- DDL, DML(더미, 테스트용)
+	- SemiProject > "ddl.sql"
+	              > "dml.sql"
+	
+8. 구현(*****)
+	- 패키지 > 서블릿
+	- 폴더 > JSP
+	- 기타 등등
+	
+	- "com.test.semi": 메인 패키지
+		- "Index.java": 시작
+		- "Template.java": 템플릿
+		
+	- "com.test.semi.user": 회원 패키지
+		- "UserService.java": 서비스 계층(객체)
+		- "Register.java": 회원 가입(폼 + 처리)
+		- "Unregister.java": 회원 탈퇴
+		- "Login.java": 로그인
+		- "Logout.java": 로그아웃
+		- "Info.java": 회원정보		
+		
+	- "com.test.semi.model"
+		- "UserDao.java"
+		- "UserDto.java"
+		- "BoardDao.java"
+		- "BoardDto.java"
+	
+	- "com.test.semi.board"
+		- "List.java"
+		- "View.java"
+		- "Add.java"
+		- "Edit.java"
+		- "Del.java"
+		- "BoardService.java"
+		
+	- "com.test.semi.filter" > web.xml 등록
+		- "EncodingFilter.java"
+		- "AuthFilter.java"
+	
+	
+		
+	
+	- "views"
+		- "index.jsp"
+		- "template.jsp"
+	- views > "user"
+				- "register.jsp"
+				- "unregister.jsp"
+				- "login.jsp"
+				- "logout.jsp"
+				- "info.jsp"
+	
+	- views > "board"
+				- "list.jsp"
+				- "view.jsp"
+				- "add.jsp"
+				- "edit.jsp"
+				- "del.jsp"
+	
+				
+	
+	- 공통 리소스
+		- views > "inc"
+					- "asset.jsp"
+					- "header.jsp"
+		- webapp > "asset"
+					- "css"
+						- "main.css"
+					- "js"(X)
+						- "main.js"(X)
+					- "images"
+					- "pic": 프로필 사진
+						- "pic.png"
+					
+	- 라이브러리
+		- lib
+			- ojdbc
+			- mylibrary
+			- lombok
+			- jstl
+			- cos
+			
+
+9. 마무리	
+
+
+
+
+게시판 허가 정책
+- CRUD
+- 목록보기, 상세보기 > 익명(O), 인증(O)
+- 쓰기, 수정하기, 삭제하기 > 익명(X), 인증(O) > 노출 제어 방식
+- 구멍 막기 > URL 직접 접근 > 필터 사용
+
+- 수정하기, 삭제하기 > 인증(O) > 본인만 가능
+- 수정하기, 삭제하기 > 관리자(모든 글에 가능)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

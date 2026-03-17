@@ -1,4 +1,4 @@
-package com.test.java.auth;
+package com.test.semi.user;
 
 import java.io.IOException;
 
@@ -9,25 +9,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(value = "/auth/logoutok.do")
-public class LogoutOk extends HttpServlet {
+@WebServlet(value = "/user/logout.do")
+public class Logout extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//LogoutOk.java
-		//즉시 로그아웃
-		//- 로그인 전 상태로 되돌리기
-		//- 인증 티켓 제거(auth)
-		//2. 돌아가기
-		
+		//Logout.java
+		//- 인증 티켓 제거
 		HttpSession session = req.getSession();
 		
-		session.removeAttribute("auth"); //로그 아웃
+		//session.removeAttribute("auth");
+		//session.removeAttribute("authDto");
 		
-		resp.sendRedirect("/auth/index.do");
+		session.invalidate();
 
+		resp.sendRedirect("/semi/index.do");
 	}
 
 }
+
+
+
+
+
+
+
+
+
 

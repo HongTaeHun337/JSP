@@ -1,4 +1,4 @@
-package com.test.java;
+package com.test.semi;
 
 import java.io.IOException;
 
@@ -15,12 +15,9 @@ public class Index extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		//Index.java
-		//DB > 이름, 등급 select
-		//req 전달
 		
-
 		req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
-
 	}
 
 }
+
