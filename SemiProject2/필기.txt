@@ -55,6 +55,8 @@
 		- "UserDto.java"
 		- "BoardDao.java"
 		- "BoardDto.java"
+		- "CommentDao.java"
+		- "CommentDto.java"
 	
 	- "com.test.semi.board"
 		- "List.java"
@@ -63,6 +65,11 @@
 		- "Edit.java"
 		- "Del.java"
 		- "BoardService.java"
+		
+	- "com.test.semi.board.comment"
+		- "AddComment.java"
+		- "DelComment.java"
+		- "EditComment.java"
 		
 	- "com.test.semi.filter" > web.xml 등록
 		- "EncodingFilter.java"
@@ -128,6 +135,17 @@
 
 
 
+
+검색
+- /semi/board/list.do 			: 목록보기
+- /semi/board/list.do?search=y	: 검색결과보기
+
+
+
+페이징
+- 게시물을 일정 개수만큼 가져오는 기법
+- 페이지 개념 > 오라클(rownum, fetch)
+- com.test.semi.board > "Dummy.java"
 
 
 

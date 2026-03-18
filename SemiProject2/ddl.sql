@@ -32,10 +32,39 @@ select * from tblBoard;
 create or replace view vwBoard
 as
 select
-    seq, subject, id, regdate, readcount,
-    (select name from tblUser where id = tblBoard.id) as name
+    seq, subject, id, regdate, readcount, content,
+    (select name from tblUser where id = tblBoard.id) as name,
+    (sysdate - regdate)as isnew,
+    (select count(*) from tblComment where bseq= tblBoard.seq) as commentCount
 from tblBoard order by seq desc;
 
+
+select *
+from vwBoard;
+
+-- 페이징
+select * from (select a.*, ROWNUM as rnum from vwBoard a)
+    where rnum between 251 and 260;
+
+
+
+-- 댓글 테이블
+create table tblComment (
+    seq number primary key ,
+    content varchar2(2000) not null ,
+    regdate date default sysdate not null ,
+    id varchar2(50) not null references tblUser(id),
+    bseq number not null references TBLBOARD(seq)
+);
+
+create sequence seqComment;
+
+select *
+from tblComment;
+
+select a.*, (select name from tblUser where id = a.id) as name
+    from tblComment a where bseq = 274
+        order by seq asc;
 
 
 
